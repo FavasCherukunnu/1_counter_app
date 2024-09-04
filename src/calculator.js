@@ -1,5 +1,6 @@
 // src/Calculator.js
 import React, { useState } from 'react';
+import { evaluate } from 'mathjs';
 import './calculator.css';
 
 const Calculator = () => {
@@ -9,7 +10,7 @@ const Calculator = () => {
   const handleClick = (value) => {
     if (value === '=') {
       try {
-        setOutput(eval(input));
+        setOutput(evaluate(input));
       } catch {
         setOutput('Error');
       }
