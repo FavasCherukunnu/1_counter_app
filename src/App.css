@@ -1,12 +1,25 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f0f2f5;
+/* src/App.css */
+.App {
+  text-align: center;
 }
 
-.App {
+.App-header {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: 20px;
+  height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+}
+
+.light-theme {
+  --background-color: #ffffff;
+  --text-color: #000000;
+}
+
+.dark-theme {
+  --background-color: #333333;
+  --text-color: #ffffff;
 }

@@ -1,13 +1,26 @@
+// src/App.js
 import React from 'react';
-import Counter from './components/counter';
+import { ThemeProvider, useTheme } from './ThemeContext';
+import ThemeSwitcher from './ThemeSwitcher';
 import './App.css';
 
-function App() {
+const AppContent = () => {
+  const { theme } = useTheme();
+  
   return (
-    <div className="App">
-      <Counter />
+    <div className={`App ${theme}-theme`}>
+      <header className="App-header">
+        <h1>Theme Switcher</h1>
+        <ThemeSwitcher />
+      </header>
     </div>
   );
-}
+};
+
+const App = () => (
+  <ThemeProvider>
+    <AppContent />
+  </ThemeProvider>
+);
 
 export default App;
