@@ -1,32 +1,39 @@
-import React, { useState } from 'react';
-import StudentList from './StudentList';
-import StudentForm from './StudentForm';
+import React, { useRef, useState, useEffect } from 'react';
 import './App.css'; // Importing the CSS file
 
-const App = () => {
-  const [students, setStudents] = useState([]);
-  const [showModal, setShowModal] = useState(false);
+function App() {
+  const containerRef = useRef(null);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
-  const addStudent = (student) => {
-    setStudents([...students, student]);
-  };
+  useEffect(() => {
+    const updateDimensions = () => {
+      if (containerRef.current) {
+        setDimensions({
+          width: containerRef.current.offsetWidth,
+          height: containerRef.current.offsetHeight,
+        });
+      }
+    };
 
-  const toggleModal = () => {
-    setShowModal(!showModal);
-  };
+    // Update dimensions on mount and on resize
+    updateDimensions();
+    window.addEventListener('resize', updateDimensions);
+    return () => window.removeEventListener('resize', updateDimensions);
+  }, []);
 
   return (
-    <div className="app">
-      <h1>Student List</h1>
-      <button className="add-btn" onClick={toggleModal}>
-        Add Student
-      </button>
-      {showModal && (
-        <StudentForm onAddStudent={addStudent} toggleModal={toggleModal} />
-      )}
-      <StudentList students={students} />
+    <div className="App">
+      <div
+        ref={containerRef}
+        className="container"
+      >
+        <p>
+          Width: {dimensions.width}px<br />
+          Height: {dimensions.height}px
+        </p>
+      </div>
     </div>
   );
-};
+}
 
 export default App;

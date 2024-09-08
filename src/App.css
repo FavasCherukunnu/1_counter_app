@@ -1,97 +1,19 @@
-/* Global Styling */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f7f7f7;
-  margin: 0;
-  padding: 0;
+.App {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: #f0f0f0;
 }
 
-.app {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Button Styling */
-.add-btn, .submit-btn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  margin-top: 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.add-btn:hover, .submit-btn:hover {
-  background-color: #45a049;
-}
-
-/* Student List */
-.student-list ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.student-list li {
-  background-color: #eee;
-  margin: 5px 0;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-/* Modal Styling */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+.container {
+  height: 30vh;
+  width: 40vw;
+  background-color: red;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.modal-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  width: 400px;
-  position: relative;
-}
-
-.close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-.form-group {
-  margin-bottom: 15px;
-  text-align: left;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-input[type="text"], input[type="number"] {
-  width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
 }
