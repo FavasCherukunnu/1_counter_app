@@ -12,8 +12,8 @@ const Gallery = ({ images }) => {
         {images.map((image, index) => (
           <div key={index} className="col-md-4 position-relative mb-4">
             <img 
-              src={`https://rest-backend-prosevo-1.onrender.com${image.imageUrl}`} 
-              alt={`Image ${index + 1}`} 
+              src={`https://rest-backend-prosevo-1.onrender.com${image.imageUrlCompressed}`} 
+              alt={`Gallery item ${index + 1}`}  // Updated alt text
               className="img-fluid" 
               style={{ height: "200px", objectFit: "cover", width: "100%" }}
               onClick={() => setSelectedImage(`https://rest-backend-prosevo-1.onrender.com${image.imageUrl}`)}

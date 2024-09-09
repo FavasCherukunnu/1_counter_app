@@ -18,7 +18,7 @@ const FavoritesModal = ({ closeModal }) => {
                 {favorites.length > 0 ? favorites.map((image, index) => (
                   <div key={index} className="col-md-4 position-relative mb-4">
                     <img 
-                      src={`https://rest-backend-prosevo-1.onrender.com${image.imageUrl}`} 
+                      src={`https://rest-backend-prosevo-1.onrender.com${image.imageUrlCompressed}`} 
                       alt={`Favorite ${index + 1}`} 
                       className="img-fluid" 
                       style={{ height: "200px", objectFit: "cover", width: "100%" }}
