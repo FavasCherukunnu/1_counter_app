@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { fetchProducts, deleteProduct } from '../api/api';
 import { Table, Button, Pagination, Spinner, Alert } from 'react-bootstrap';
-import { useNavigate, useLocation, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -14,7 +14,6 @@ const ProductList = () => {
   const [totalPages, setTotalPages] = useState(1);
 
   const navigate = useNavigate();
-  const location = useLocation();
 
   const itemsPerPage = 10;
 
