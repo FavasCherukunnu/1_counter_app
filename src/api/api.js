@@ -18,3 +18,6 @@ export const updateProduct = (id, updatedProduct) => API.put(`/product/${id}`, u
 
 // Delete Product
 export const deleteProduct = (id) => API.delete(`/product/${id}`);
+
+// Get Product by ID
+export const fetchProductById = (id) => API.get(`/product/${id}`);

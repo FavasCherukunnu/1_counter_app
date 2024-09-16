@@ -11,6 +11,19 @@ X {
     /* padding: 20px; */
 
   }
+
+  .loadingTop{
+    padding: 10px 10px 10px 10px;
+    border: solid 1px;
+    border-radius: 15px;
+    background-color: rgb(232, 232, 175);
+    width: min-content;
+    position: absolute;
+    z-index: 2000;
+    white-space: nowrap;
+    left: 50%;
+    transform: translateX(-50%);
+  }
   
   /* Navbar */
   nav ul {

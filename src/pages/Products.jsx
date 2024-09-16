@@ -8,6 +8,7 @@ const Products = () => {
     <div>
       
       <Routes>
+        <Route path=":productId" element={<CreateProduct mode='edit' />} />
         <Route path="create" element={<CreateProduct />} />
         <Route path="list" element={<ProductList />} />
       </Routes>

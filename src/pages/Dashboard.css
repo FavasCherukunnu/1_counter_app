@@ -1,74 +1,98 @@
 /* Container for the entire dashboard layout */
 .dashboard-container {
-    display: flex;
-  }
-  
-  /* Sidebar Styling */
-  .sidebar {
-    width: 250px;
-    background-color: #f8f9fa;
-    padding: 20px;
-    border-right: 1px solid #e0e0e0;
-    height: 100vh;
-    position: sticky;
-    top: 0;
-  }
-  
-  .sidebar-section {
-    margin-bottom: 20px;
-  }
-  
-  /* Headings for Product and Categories */
-  .sidebar-heading {
-    font-size: 18px;
-    color: #333;
-    margin-bottom: 10px;
-    font-weight: bold;
-  }
-  
-  /* Sidebar links styling */
-  .sidebar-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .sidebar-links li {
-    margin-bottom: 10px;
-  }
-  
-  /* Link styling */
-  .sidebar-links a {
-    text-decoration: none;
-    color: #007bff;
-    font-size: 16px;
-    padding: 8px 12px;
-    display: block;
+  display: flex;
+}
 
+/* Sidebar Styling */
+.sidebar {
+  width: 250px;
+  min-width: 250px;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-right: 1px solid #e0e0e0;
+  height: 100vh;
+  position: sticky;
+  display: flex;
+  top: 0;
+}
+
+.sidebar-toggle-button {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .sidebar {
+    position: fixed;
+    transition: all 0.3s ease-out;
+    top: 0;
+    z-index: 3000;
   }
-  
-  /* Active link styling */
-  .active-link {
-    color: #fff !important;
-    background-color: #007bff !important;
-    padding: 8px 12px;
-    border-radius: 4px;
-    display: block;
+
+  .sidebar-toggle-button {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
   }
-  
-  /* Hover effect for links */
-  .sidebar-links a:hover {
-    background-color: #f1f1f1;
-    padding: 8px 12px;
-    border-radius: 4px;
-    display: block;
-  }
-  
-  /* Content Area Styling */
   .dashboard-content {
-    flex-grow: 1;
-    padding: 20px;
+    margin-left: 40px;
   }
-  
+}
+
+.sidebar-section {
+  margin-bottom: 20px;
+}
+
+/* Headings for Product and Categories */
+.sidebar-heading {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Sidebar links styling */
+.sidebar-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-links li {
+  margin-bottom: 10px;
+}
+
+/* Link styling */
+.sidebar-links a {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 16px;
+  padding: 8px 12px;
+  display: block;
+
+}
+
+/* Active link styling */
+.active-link {
+  color: #fff !important;
+  background-color: #007bff !important;
+  padding: 8px 12px;
+  border-radius: 4px;
+  display: block;
+}
+
+/* Hover effect for links */
+.sidebar-links a:hover {
+  background-color: #f1f1f1;
+  padding: 8px 12px;
+  border-radius: 4px;
+  display: block;
+}
+
+/* Content Area Styling */
+.dashboard-content {
+  flex-grow: 1;
+  padding: 20px;
+}
