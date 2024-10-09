@@ -2,7 +2,7 @@ import React from 'react';
 import { Navigate, NavLink, Route, Routes } from 'react-router-dom';
 import './Dashboard.css'; // We'll style the dashboard here
 import Products from './Products';
-import Categories from './Officials/Dashboard/Categories';
+import Categories from './Categories';
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 
 const Dashboard = () => {

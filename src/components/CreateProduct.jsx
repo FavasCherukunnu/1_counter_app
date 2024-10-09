@@ -10,7 +10,9 @@ const CreateProduct = ({ mode = 'create' }) => {
         title: '',
         description: '',
         category_id: '',
-        image: null
+        image: null,
+        quantity: '',
+        price: ''
     });
     const [categories, setCategories] = useState([]); // State to hold fetched categories
     const [imagePreview, setImagePreview] = useState(null);
@@ -51,7 +53,9 @@ const CreateProduct = ({ mode = 'create' }) => {
                             title: product.title,
                             description: product.description,
                             category_id: product.category_id,
-                            image: null // We'll keep image null initially; user can upload a new image if needed
+                            image: null, // We'll keep image null initially; user can upload a new image if needed
+                            quantity: product.quantity,
+                            price: product.price
                         });
                         setImagePreview(product.image); // Use the `image` field from the response for image preview
                         setLoading(false);
@@ -90,6 +94,8 @@ const CreateProduct = ({ mode = 'create' }) => {
         if (!formData.description) errors.description = 'Description is required';
         if (!formData.category_id) errors.category_id = 'Category is required';
         if (mode === 'create' && !formData.image) errors.image = 'Image is required';
+        if (formData.quantity && isNaN(formData.quantity) || Number(formData.quantity) <= 0) errors.quantity = 'Quantity must be a number greater than zero';
+        if (formData.price && isNaN(formData.price) || Number(formData.price) <= 0) errors.price = 'Price must be a number greater than zero';
         return errors;
     };
 
@@ -206,6 +212,32 @@ const CreateProduct = ({ mode = 'create' }) => {
                             ))}
                         </select>
                         {formErrors.category_id && <p className="error">{formErrors.category_id}</p>}
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="quantity">Quantity</label>
+                        <input
+                            type="number"
+                            id="quantity"
+                            placeholder="Quantity"
+                            value={formData.quantity}
+                            onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
+                            disabled={loading || loadingCategory}
+                        />
+                        {formErrors.quantity && <p className="error">{formErrors.quantity}</p>}
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="price">Price</label>
+                        <input
+                            type="number"
+                            id="price"
+                            placeholder="Price"
+                            value={formData.price}
+                            onChange={(e) => setFormData({ ...formData, price: e.target.value })}
+                            disabled={loading || loadingCategory}
+                        />
+                        {formErrors.price && <p className="error">{formErrors.price}</p>}
                     </div>
 
                     <div className="form-group">

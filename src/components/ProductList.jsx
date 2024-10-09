@@ -47,8 +47,12 @@ const ProductList = () => {
       setAlertType('success');
       setDeleting(null);
     } catch (err) {
-      console.error(err);
-      setAlertMessage('Error deleting product');
+      if (err.response && err.response.data && err.response.data.message === 'No token provided') {
+        setAlertMessage('No token provided');
+      } else {
+        console.error(err);
+        setAlertMessage('Error deleting product');
+      }
       setAlertType('danger');
       setDeleting(null);
     }
@@ -61,7 +65,7 @@ const ProductList = () => {
   };
 
   const handleView = (id) => {
-    navigate(`/products/${id}`); // Navigate to product details page with the product id
+    navigate(`/official/products/${id}`); // Navigate to product details page with the product id
   };
 
   return (
